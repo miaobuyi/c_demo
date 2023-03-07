@@ -1,0 +1,32 @@
+cmake_minimum_required(VERSION 3.0)
+project(demo C)
+
+set(CMAKE_C_STANDARD 99)
+
+add_executable(demo main.c)
+
+
+add_executable(CoinGuessing "CoinGuessing.c")
+add_executable(Narcissus Narcissus.c)
+add_executable(primeNumber primeNumber.c)
+add_executable(mult mult.c)
+add_executable(triangle triangle.c)
+add_executable(progressBar progressBar.c)
+add_executable(yanghuiTriangle yanghuiTriangle.c)
+add_executable(reverseOrder reverseOrder.c)
+add_executable(achievement achievement.c)
+add_executable(Narcissus2 primeNumber2.c)
+add_executable(numericalCounting numericalCounting.c)
+add_executable(binarySystem binarySystem.c)
+add_executable(downTriangle downTriangle.c)
+add_executable(maxNum maxNum.c)
+add_executable(charDiamond charDiamond.c)
+add_executable(adress adress.c)
+add_executable(character character.c)
+add_executable(login login.c)
+add_executable(cpy cpy.c)
+
+add_executable(cat cat.c)
+add_executable(compression compression.c)
+add_executable(expansion expansion.c)
+add_executable(charint charint.c)
