@@ -3,7 +3,11 @@
 //
 
 # include <stdio.h>
-int main(){
+#include <string.h>
 
-    return 0;
+int main(){
+    int b[4][6]={1,2,3,4,
+                 5,6,7,8}, *p, *q[4];
+    p = b;
+    printf("%d",*q[3]);
 }
