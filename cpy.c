@@ -5,10 +5,11 @@
 #include <stdio.h>
 
 int main(){
-    char a[20]="hello",*p1,*p2;
-    char c;
-    p1=a,p2=a;p2=c;
-    c=*p1*(*p2);
-    printf("%d",c);
+    char a[20]="hello",b[]="world",*p=a,*q=b;
+    while (*q!='\0'){
+        *(p++)=*(q++);
+    }
+    *q='\0';
+    printf("%s",a);
     return 0;
 }
