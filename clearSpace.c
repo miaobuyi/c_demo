@@ -22,7 +22,6 @@ void clearSpace(char * p){
             q++;
         } else{
             p++;
-            *q=*p;
         }
     }
     *q='\0';

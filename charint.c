@@ -25,7 +25,7 @@ char * intTochar(char * result ,int s,int n){
 }
 
 int main(){
-    char a[20]="1234";
+    char a[20]="-1234";
     int b= charToint(a,strlen(a));
     char cc[20]={0};
     printf("int:%d\n",b);
