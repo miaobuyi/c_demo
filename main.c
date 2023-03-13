@@ -21,6 +21,7 @@ struct stu{
 
 int main(){
     char a[]={0,1,2,3,4,5};
+    printf("a[1]=%d",a[1]);
     return 0;
 }
 
