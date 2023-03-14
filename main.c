@@ -4,24 +4,16 @@
 
 
 #include <stdio.h>
-#include <string.h>
-
-struct date {
-        int year;
-        int month;
-        int day;
-};
-
-struct stu{
-    char name[10];
-    int age;
-    char sex;
-    struct date date;
-};
+#include <math.h>
 
 int main(){
-    char a[]={0,1,2,3,4,5};
-    printf("a[1]=%d",a[1]);
-    return 0;
+    for (int i = -100; i < 10000; ++i){
+        if(floor(sqrt(i+100))*floor(sqrt(i+100))==i+100){
+            if(floor(sqrt(i+268))*floor(sqrt(i+268))==i+268){
+                printf("%d ",i);
+            }
+        }
+    }
+
 }
 
