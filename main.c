@@ -7,20 +7,25 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Zc {
+typedef  struct stu{
+    char name[10];
     int age;
-    char name[32];
-    char sex[32];
-} a = {18, "zhangcheng", "man"};//全局变量初始化
+}STU;
 
-int main(int argc, char *argv[]) {
-    struct Zc b = {20, "cheng", "man"}; //局部变量初始化
-    struct Zc c;
-    c.age = 22;
-    strcpy(c.name, "zhang");
-    strcpy(c.sex, "women");
-    printf("a.age=%d\n", a.age); //成员的调用
-    printf("b.age=%d\n", b.age);
-    printf("c.sex=%s\n", c.sex);
-    return 0;
+typedef struct tea{
+    STU stu[3];
+    char name[10];
+} TEA;
+
+
+enum {
+    a = 1,
+    b =3,
+
+};
+
+int main(){
+    i s[20];
+    printf("%d\n",a);
+    printf("%d\n",b);
 }
