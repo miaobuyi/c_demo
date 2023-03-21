@@ -7,25 +7,27 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef  struct stu{
-    char name[10];
-    int age;
-}STU;
 
-typedef struct tea{
-    STU stu[3];
-    char name[10];
-} TEA;
+int find(char *str1, char *str2, int an, int bn) {
+    int result = 0;
+    for (int i = 0; i < an - bn + 1; ++i) {
+        for (int j = 0; j < bn; ++j) {
+            if (str1[i + j] == str2[j]) {
+                if (j == bn-1) {
+                    result++;
+                }
+            }else {
+                break;
+            }
+        }
+    }
+    return result;
+}
 
-
-enum {
-    a = 1,
-    b =3,
-
-};
-
-int main(){
-    i s[20];
-    printf("%d\n",a);
-    printf("%d\n",b);
+int main() {
+    char a[50] = "hellohellohello";
+    char b[50] = "llo";
+    int an = strlen(a), bn = strlen(b);
+    printf("%d", find(a, b, an, bn));
+    return 0;
 }

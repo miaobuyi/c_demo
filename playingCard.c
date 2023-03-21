@@ -1,31 +1,37 @@
 #include <stdio.h>
-//1.将最下面的牌放回原数组最上面
-//2.将最下面的牌放到最上面
-int main(){
-    char *poke[13]={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
-    char *origin[13];
-    int j=0;
-    char *temp;
+#include <string.h>
+#include <mmcobj.h>
 
-    for (int i = 12; i >=0; i--) {
-        if(j==0){
-            origin[j]=poke[i];
-            j++;
-            continue;
+#define MAX_CARDS 13
+
+struct ListNode {
+    int val;
+    struct ListNode* next;
+};
+
+
+int main() {
+    char* cards[MAX_CARDS] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
+    char* re[MAX_CARDS] = {0};
+    int count=1,space=0;
+    for (int i = 0; i < 13; ++i) {
+        for (int j = 0; j < 13; ++j) {
+            if (re[i]==0&&space!=count){
+                space++;
+                continue;
+            }
+            if (space==count){
+                re[j]=cards[i];
+                space=0;
+            }
         }
-        for (int k = j-1; k >=0; k--) {
-            origin[k+1]=origin[k];
+        count++;
+        space=0;
+        if(count==2){
+            space=2;
         }
-        origin[0]=poke[i];
-        temp=origin[j];
-        for (int k = j; k >=0; k--) {
-            origin[k+1]=origin[k];
-        }
-        origin[0]=temp;
-        j++;
     }
     for (int i = 0; i < 13; ++i) {
-        printf("%s ",origin[i]);
+        printf("%s",re[i]);
     }
-    return 0;
 }
