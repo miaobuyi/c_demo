@@ -78,6 +78,10 @@ int prn(seqlist *head) {
 int dle_seqlist(seqlist *head, int pos) {
     if (head == NULL)
         return -1;
+    if (pos < 0 || pos > head->last)
+        return -1;
+    if(seqlist_is_empty(head))
+        return -1;
     for (int i = pos; i < head->last; i++) {
         head->data[i] = head->data[i + 1];
     }
@@ -90,6 +94,10 @@ int dle_seqlist(seqlist *head, int pos) {
 int que_pos_seqlist(seqlist *head, int pos) {
     if (head == NULL)
         return -1;
+    if (pos < 0 || pos > head->last)
+        return -1;
+    if(seqlist_is_empty(head))
+        return -1;
     return head->data[pos];
 }
 
@@ -97,13 +105,19 @@ int que_pos_seqlist(seqlist *head, int pos) {
 int ale_seqlist(seqlist *head, int pos, data_t value) {
     if (head == NULL)
         return -1;
+    if (pos < 0 || pos > head->last)
+        return -1;
+    if(seqlist_is_empty(head))
+        return -1;
     head->data[pos] = value;
     return 0;
 }
 
 //查询
-int que_seqlist(seqlist* head,data_t value){
+int que_seqlist(seqlist* head,data_t value) {
     if (head == NULL)
+        return -1;
+    if(seqlist_is_empty(head))
         return -1;
     for (int i = 0; i < head->last+1; ++i) {
         if(head->data[i]==value)
@@ -114,11 +128,22 @@ int que_seqlist(seqlist* head,data_t value){
 
 //错误打印
 int perr_exit(char *s) {
+    printf("s");
     if (s == NULL)
         printf("%s--%d\n", __func__, __LINE__);
     else
         printf("%s:%s--%d\n", s, __func__, __LINE__);
     return -1;
+}
+//清空表
+void clear_seqlist(seqlist * head){
+    if(head==NULL) return;
+    head->last=-1;
+}
+//销毁表
+int destory_seqlist(seqlist* head ){
+    free(head);
+    head=NULL;
 }
 
 int main() {
@@ -128,12 +153,18 @@ int main() {
         insert_by_pos_seqlist(head, i, i + 1);
     }
     prn(head);
-    dle_seqlist(head, 8);
+    dle_seqlist(head, 0);
     prn(head);
     printf("%d\n", que_pos_seqlist(head,1));
     ale_seqlist(head,1,8);
     printf("%d\n", que_pos_seqlist(head,1));
     prn(head);
     printf("%d\n",que_seqlist(head,1));
+    clear_seqlist(head);
+    prn(head);
+    printf("--------");
+
+    destory_seqlist(&*head);
+    prn(head);
     return 0;
 }

@@ -5,29 +5,23 @@
 
 
 #include <stdio.h>
-#include <string.h>
+#include "seqlist.h"
 
 
-int find(char *str1, char *str2, int an, int bn) {
-    int result = 0;
-    for (int i = 0; i < an - bn + 1; ++i) {
-        for (int j = 0; j < bn; ++j) {
-            if (str1[i + j] == str2[j]) {
-                if (j == bn-1) {
-                    result++;
-                }
-            }else {
-                break;
-            }
-        }
-    }
-    return result;
-}
 
 int main() {
-    char a[50] = "hellohellohello";
-    char b[50] = "llo";
-    int an = strlen(a), bn = strlen(b);
-    printf("%d", find(a, b, an, bn));
+    seqlist *head = create_seqlist();
+    if (head == NULL)return -1;
+    for (int i = 0; i < 5; ++i) {
+        insert_by_pos_seqlist(head, i, i + 1);
+    }
+    prn(head);
+    dle_seqlist(head, 0);
+    prn(head);
+    printf("%d\n", que_pos_seqlist(head,1));
+    ale_seqlist(head,1,8);
+    printf("%d\n", que_pos_seqlist(head,1));
+    prn(head);
+    printf("%d\n",que_seqlist(head,1));
     return 0;
 }
