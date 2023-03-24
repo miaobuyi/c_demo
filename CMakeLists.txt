@@ -50,3 +50,5 @@ add_executable(square square.c)
 add_executable(test test.c)
 
 add_executable(seqlist seqlist.c)
+add_executable(LinkedListMerge LinkedListMerge.c)
+add_executable(linklist linklist.c)
