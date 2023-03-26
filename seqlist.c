@@ -141,7 +141,7 @@ void clear_seqlist(seqlist * head){
     head->last=-1;
 }
 //销毁表
-int destory_seqlist(seqlist* head ){
+void destory_seqlist(seqlist* head ){
     free(head);
     head=NULL;
 }
