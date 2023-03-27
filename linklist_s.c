@@ -31,6 +31,7 @@ int insert_head_relinklist(relinklist* head, data_t val)
     new->next = NULL;
     new->prior = NULL;
     //头插法 插入
+    if(head->next!=NULL)head->next->prior=new;
     new->next = head->next;
     new->prior =head;
     head->next = new;
@@ -81,6 +82,18 @@ void inser_by_pos_relinklist(relinklist * head,int pos,data_t val){
     new->prior=p;
 }
 //按位置删除
+void delete_by_pos_relinklist(relinklist * head,int pos){
+    relinklist *p=head->next;
+    while(pos--)
+    {
+        p = p->next;
+    }
+    printf("%d\n",p->data);
+    p->next->prior=p->prior;
+    p->prior->next=p->next;
+    p=NULL;
+    free(p);
+}
 //判空
 //判满
 //求有效节点个数(求长度)
@@ -96,6 +109,9 @@ int main(){
     show(head);
     delete_by_val_relinklist(head,9);
     show(head);
-    inser_by_pos_relinklist(head,0,0);
+    inser_by_pos_relinklist(head,5,5);
     show(head);
+    delete_by_pos_relinklist(head,4);
+    show(head);
+
 }
